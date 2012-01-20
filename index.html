@@ -13,6 +13,12 @@
     <link href="css/presentation.css" rel="stylesheet" />
 </head>
 <body>
+<style>
+    .ace-area{
+        width:820px;
+        height:504px;
+    }
+</style>
 
 <div id="impress" class="impress-not-supported">
 
@@ -52,14 +58,6 @@
 
     -->
 
-    <div class="me step no-chrome-slide" data-x="0" data-y="-2500" data-transition="all .2s ease-in-out">
-        <div>
-            <div>
-                <img src="images/kd14.jpg" alt="Systemutvecklare">
-            </div>
-        </div>
-    </div>
-
     <div class="me step no-chrome-slide" data-x="1000" data-y="-2500" data-transition="all .2s ease-in-out">
         <div>
             <div>
@@ -84,7 +82,7 @@
         </div>
     </div>
 
-    <div class="me step slide" data-x="3000" data-y="-1500" data-rotate="180" data-transition="all .8s ease-in-out">
+    <div class="me step slide" data-x="4000" data-y="-1500" data-rotate="180" data-transition="all .8s ease-in-out">
         <div>
             <div>
                 <h1>Varför JavaScript?</h1>
@@ -92,19 +90,51 @@
         </div>
     </div>
 
-    <div class="me step slide" data-x="2000" data-y="-1500" data-rotate="180" data-transition="all .4s ease-in-out">
+    <div class="me step slide" data-x="3000" data-y="-1500" data-rotate="180" data-transition="all .4s ease-in-out">
         <div>
             <div>
                 <div style="display:inline-block">
                     <div style="float:left">
                         <img  src="images/definitive.gif">
-                        <div style="margin-top:20px">Sidor: <b>936</b></div>
+                        <div style="margin-top:20px; background-color:#555;color:white"><b>936</b></div>
                     </div>
-                    <div style="float:left;margin-left:20px">
+                    <div style="float:left;margin-left:20px;">
                         <img data-subStep="1" src="images/goodparts.gif">
-                        <div style="margin-top:20px" data-subStep="1">Sidor: <b>172</b></div>
+                        <div style="margin-top:26px;color:#333;background-color:green;width:33px" data-subStep="1"><b>172</b></div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="me step no-chrome-slide" data-x="2000" data-y="-1500" data-rotate="180" data-transition="all .4s ease-in-out">
+        <div>
+            <div>
+                <iframe width="420" height="315" src="http://www.youtube.com/embed/Y2Y0U-2qJMs#t=39s" frameborder="0" allowfullscreen></iframe>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="me step no-chrome-slide" data-x="0" data-y="3000" data-scale="2" data-rotate="90">
+        <div>
+            <div style="position:relative">
+                <img width="100%" src="images/Galaxy.jpg">
+                <img data-subStep="1" style="position:absolute;left:60px;top:100px" width="250px" src="images/Netscape_logo.png">
+                <div data-subStep="2" style="position:absolute;left:300px;top:130px;color:white">LiveScript</div>
+                <div data-subStep="3" style="position:absolute;left:330px;top:180px;color:white">JavaScript</div>
+                <div data-subStep="4" style="position:absolute;left:330px;top:180px;color:white">JScript</div>
+                <div data-subStep="5" style="position:absolute;left:360px;top:230px;color:white">ECMAScript</div>
+                <div data-subStep="6" style="position:absolute;left:350px;top:270px;background-color:white;height:3px;width:230px">&nbsp;</div>
+                <div data-subStep="7" style="position:absolute;left:390px;top:310px;color:white">JS</div>
+            </div>
+        </div> 
+    </div>
+
+    <div class="me step no-chrome-slide" data-x="0" data-y="1000" data-scale="2" data-rotate="90">
+        <div>
+            <div style="position:relative;background-image:url(images/js.png);background-size: 83%;background-position: 52px -75px;width:100%;height:100%">
+
             </div>
         </div>
     </div>
@@ -133,7 +163,8 @@
                     <li> booleans
                     <li> numbers
                     <li> objects
-
+                    <li> null
+                    <li> undefined
                 </ul>
             </div>
         </div>
@@ -159,55 +190,92 @@ var noop = function(){};
         <div>
             <div>
                 <h2>Funktionsdeklarationer</h2>
-                    <pre class="ace-area-1">
-function f1(){};
-var f2 = function(a){return a;};
-var f3 = function getStuff(cb){ $.get('/stuff', cb)};
-var c1 = function Person(name){ this.name = name; }
-(function(){ console.log('immediate');}())
+                    <pre class="ace-area">
+var f1 = function(a){return a;};
+
+function f2(){}
+
+var f3 = function getStuff(cb){ 
+    $.get('/stuff', cb);
+};
+
+var c1 = function Person(name){ 
+    this.name = name;
+}
+
+(function(){ console.log('immediate');}());
                     </pre>
             </div>
         </div>
     </div>
 
-    <div class="me step no-chrome-slide" data-x="-3000" data-y="-1500" data-rotate="180" data-transition="all .2s ease-in-out">
+    <div class="me step no-chrome-slide" data-x="-3000" data-y="-1500" data-rotate="180" data-transition="all .4s ease-in-out">
+        <div>
+            <div>
+                <h2>Funktionsanrop</h2>
+                    <pre class="ace-area">
+myFunction();
+
+myObj.myFunction();
+
+new MyFunction();
+
+myFunction.call(this, arg1);
+
+myFunction.apply(this, []);
+                    </pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="me step no-chrome-slide" data-x="-3000" data-y="-1500" data-rotate="180" data-transition="all .4s ease-in-out">
+        <div>
+            <div>
+                <h2>Funktionsanrop</h2>
+                    <pre class="ace-area">
+myFunction();
+
+myObj.myFunction();
+
+new MyFunction();
+
+myFunction.call(this, arg1);
+
+myFunction.apply(this, []);
+                    </pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="me step no-chrome-slide" data-x="-5000" data-y="-1500" data-rotate="180" data-transition="all .2s ease-in-out">
         <div>
             <div>
                 <h2 style="font-size:60px">Scoping</h2>
                 <ul style="list-style-type:disc;text-align:left;display:inline-block;line-height:1.4;">
-                    
                     <li> Function scope
-                    <li> Inget block-scope!
+                    <li> _inte_ block-scope!
+                    <li> 
                 </ul>
             </div>
         </div>
     </div>
 
-
-    <div class="me step no-chrome-slide" data-x="0" data-y="1000" data-scale="2" data-rotate="90">
+    <div class="me step no-chrome-slide" data-x="-5000" data-y="-1500" data-rotate="180" data-transition="all .2s ease-in-out">
         <div>
-            <div style="position:relative;background-image:url(images/js.png);background-size: 83%;background-position: 52px -75px;width:100%;height:100%">
-
+            <div>
+                <h2 style="font-size:60px">Scoping</h2>
+                <ul style="list-style-type:disc;text-align:left;display:inline-block;line-height:1.4;">
+                    <li> Function scope
+                    <li> _inte_ block-scope!
+                    <li> 
+                </ul>
             </div>
         </div>
     </div>
+    
 
-    <div class="me step no-chrome-slide" data-x="0" data-y="3000" data-scale="2" data-rotate="90">
-        <div>
-            <div style="position:relative">
-                <img width="100%" src="images/Galaxy.jpg">
-                <img data-subStep="1" style="position:absolute;left:60px;top:100px" width="250px" src="images/Netscape_logo.png">
-                <div data-subStep="2" style="position:absolute;left:300px;top:130px;color:white">LiveScript</div>
-                <div data-subStep="3" style="position:absolute;left:330px;top:180px;color:white">JavaScript</div>
-                <div data-subStep="3" style="position:absolute;left:330px;top:180px;color:white">JScript</div>
-                <div data-subStep="4" style="position:absolute;left:360px;top:230px;color:white">ECMAScript</div>
-                <div data-subStep="5" style="position:absolute;left:350px;top:270px;background-color:white;height:3px;width:230px">&nbsp;</div>
-                <div data-subStep="6" style="position:absolute;left:390px;top:310px;color:white">JS</div>
-            </div>
-        </div> 
-    </div>
 </div>
-
+<!--http://www.youtube.com/watch?v=Y2Y0U-2qJMs&feature=player_detailpage#t=37s -->
 
 <script src="js/impress.js"></script>
 <script src="js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
@@ -216,10 +284,11 @@ var c1 = function Person(name){ this.name = name; }
 <script>
     document.addEventListener('DOMContentLoaded', function domContentLoaded(){
        Array.prototype.slice.call(document.querySelectorAll('.ace-area')).forEach(function replaceWithAceFrame(el){
-           aceFrame = document.createElement('iframe');
+           var aceFrame = document.createElement('iframe');
            aceFrame.width = el.clientWidth;
            aceFrame.height = el.clientHeight;
            aceFrame.src = "ace.html";
+           aceFrame.setAttribute('allowfullscreen');
            aceFrame.onload = function frameLoaded(){
              aceFrame.contentDocument.getElementById('editor').innerHTML = el.innerHTML;
              aceFrame.contentWindow.initEditor();

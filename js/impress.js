@@ -36,7 +36,7 @@
             }
 
             return memory[ prop ];
-        }
+        };
 
     })();
 
@@ -49,13 +49,13 @@
         for ( key in props ) {
             if ( props.hasOwnProperty(key) ) {
                 pkey = pfx(key);
-                if ( pkey != null ) {
+                if ( pkey !== null ) {
                     el.style[pkey] = props[key];
                 }
             }
         }
         return el;
-    }
+    };
     
     var $ = function ( selector, context ) {
         context = context || document;
@@ -81,12 +81,12 @@
     
     var scale = function ( s ) {
         return " scaleX(" + s.x + ") scaleY(" + s.y + ") scaleZ(" + s.z + ") ";
-    }
+    };
     
     // CHECK SUPPORT
     
     var ua = navigator.userAgent.toLowerCase();
-    var impressSupported = ( pfx("perspective") != null ) &&
+    var impressSupported = ( pfx("perspective") !== null ) &&
                            ( ua.search(/(iphone)|(ipod)|(ipad)|(android)/) == -1 );
     
     // DOM ELEMENTS
@@ -125,7 +125,7 @@
         transformOrigin: "top left",
         transition: "all 1s ease-in-out",
         transformStyle: "preserve-3d"
-    }
+    };
     
     css(impress, props);
     css(impress, {
@@ -224,11 +224,11 @@
         });
         
         current = target;
-    }
+    };
     
     // EVENTS
     var hasSubSteps = function(item){
-        return $$('[data-subStep]', item).length
+        return $$('[data-subStep]', item).length;
     };
 
     var hasRevealedAllSubSteps = function(item){
@@ -236,12 +236,12 @@
     };
 
     var showNextSubStep = function(item){
-        var currentStep = parseInt(item.getAttribute('data-atSubstep')) || 0;
+        var currentStep = parseInt(item.getAttribute('data-atSubstep'), 10) || 0;
         var nextStep = (currentStep + 1);
         var next = $$('[data-subStep="' + nextStep + '"]', item);
         next.forEach(function(item){
-            item.classList.add('show');  
-        })
+            item.classList.add('show');
+        });
         
 
         item.setAttribute('data-atSubstep', nextStep);
@@ -252,17 +252,17 @@
             var active = $(".step.active", impress);
             var next = active;
             switch( event.keyCode ) {
-                case 33: ; // pg up
-                case 37: ; // left
-                case 38:   // up
+                case 33:  // pg up
+                case 37:  // left
+                case 38:  // up
                          next = steps.indexOf( active ) - 1;
                          next = next >= 0 ? steps[ next ] : steps[ steps.length-1 ];
                          break;
-                case 9:  ; // tab
-                case 32: ; // space
-                case 34: ; // pg down
-                case 39: ; // right
-                case 40:   // down
+                case 9:   // tab
+                case 32:  // space
+                case 34:  // pg down
+                case 39:  // right
+                case 40:  // down
                          
                         if(hasSubSteps(active) && ! hasRevealedAllSubSteps(active)){ //Go to next sub-step
                             showNextSubStep(active);
@@ -271,7 +271,7 @@
                             next = next < steps.length ? steps[ next ] : steps[ 0 ];
                         }
 
-                         break; 
+                         break;
             }
             
             if(next!=active)
@@ -293,7 +293,7 @@
         window.scrollTo(0, 0);
     }, false);
     
-    // START 
+    // START
     // by selecting first step of presentation
     select(steps[0]);
 

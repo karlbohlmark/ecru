@@ -16,4 +16,10 @@
 	    var JavaScriptMode = ace.require("ace/mode/javascript").Mode;
 	    aceEditor.getSession().setMode(new JavaScriptMode());
 	};
+
+	document.addEventListener('DOMContentLoaded', function(){
+		document.body.addEventListener('dblclick', function(){
+			document.body.webkitRequestFullScreen();
+		})
+	})
 </script>
