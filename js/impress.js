@@ -158,7 +158,8 @@
                     x: data.scaleX || data.scale || 1,
                     y: data.scaleY || data.scale || 1,
                     z: data.scaleZ || 1
-                }
+                },
+                transition: data.transition || "all 1s ease-in-out"
             };
         
         el.stepData = step;
@@ -205,7 +206,8 @@
                 x: -step.translate.x,
                 y: -step.translate.y,
                 z: -step.translate.z
-            }
+            },
+            transition: step.transition
         };
 
         var zoomin = target.scale.x >= current.scale.x;
@@ -217,14 +219,34 @@
         
         css(canvas, {
             transform: rotate(target.rotate, true) + translate(target.translate),
-            transitionDelay: (zoomin ? "0ms" : "500ms")
+            transitionDelay: (zoomin ? "0ms" : "500ms"),
+            transition: target.transition
         });
         
         current = target;
     }
     
     // EVENTS
-    
+    var hasSubSteps = function(item){
+        return $$('[data-subStep]', item).length
+    };
+
+    var hasRevealedAllSubSteps = function(item){
+        return ! $$('[data-subStep]:not(.show)', item).length;
+    };
+
+    var showNextSubStep = function(item){
+        var currentStep = parseInt(item.getAttribute('data-atSubstep')) || 0;
+        var nextStep = (currentStep + 1);
+        var next = $$('[data-subStep="' + nextStep + '"]', item);
+        next.forEach(function(item){
+            item.classList.add('show');  
+        })
+        
+
+        item.setAttribute('data-atSubstep', nextStep);
+    };
+
     document.addEventListener("keydown", function ( event ) {
         if ( event.keyCode == 9 || ( event.keyCode >= 32 && event.keyCode <= 34 ) || (event.keyCode >= 37 && event.keyCode <= 40) ) {
             var active = $(".step.active", impress);
@@ -241,12 +263,19 @@
                 case 34: ; // pg down
                 case 39: ; // right
                 case 40:   // down
-                         next = steps.indexOf( active ) + 1;
-                         next = next < steps.length ? steps[ next ] : steps[ 0 ];
+                         
+                        if(hasSubSteps(active) && ! hasRevealedAllSubSteps(active)){ //Go to next sub-step
+                            showNextSubStep(active);
+                        }else{
+                            next = steps.indexOf( active ) + 1;
+                            next = next < steps.length ? steps[ next ] : steps[ 0 ];
+                        }
+
                          break; 
             }
             
-            select(next);
+            if(next!=active)
+                select(next);
             
             event.preventDefault();
         }
