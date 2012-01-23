@@ -290,9 +290,9 @@ myFunction.apply(this, []);
     </div>
 -->
         <div class="me step no-chrome-slide" data-x="-4000" data-y="-1500" data-rotate="180" data-transition="all .4s ease-in-out">
-        <div>
             <div>
-                <h2>Closures</h2>
+                <div>
+                    <h2>Closures</h2>
                     <pre class="ace-area">
 (function(){
     var subscriptions = {};
@@ -316,15 +316,41 @@ myFunction.apply(this, []);
         </div>
     </div>
 
+    <div class="me step no-chrome-slide"  data-x="-4000" data-y="-500" data-rotate="180" data-transition="all .4s ease-in-out">
+        <div>
+            <div>
+                <h1>JS i Webbläsare</h1>
+                <ul style="text-align:left;display:inline-block;line-height:1.4;margin: 0 auto;list-style-type: disc;margin-top:20px">
+                    <li> DOM API:erna är horribla
+                    <li> Kompatibilitet &lt;- IE
+                    <li> Prestanda &lt;- IE
+                    <li> Event loop / enkel-trådat -> callback-orienterat
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <div class="me step no-chrome-slide" data-x="-5000" data-y="-1500" data-rotate="180" data-transition="all .2s ease-in-out">
         <div>
             <div style="position:relative">
-                <div style="background-color:black;width:240px;height:70px;border-radius:6px;position:relative;top:10px;margin:auto"><img  src="images/jquery.gif"></div>
+                <div style="background-color:black;width:240px;height:70px;border-radius:6px;position:relative;top:10px;margin:auto"><img style="position:relative;top:10px" src="images/jquery.gif"></div>
                 <span style="position:absolute;left:80px;top:130px;">DOM</span>
                 <span style="position:absolute;left:600px;top:290px;">AJAX</span>
                 <span style="position:absolute;left:400px;top:120px;">Events</span>
                 <span style="position:absolute;left:400px;top:520px;">Effects</span>
                 <img style="width:800px" src="images/victorinox.jpeg">
+            </div>
+        </div>
+    </div>
+
+    <div class="me step no-chrome-slide" data-x="-5000" data-y="-500" data-rotate="180" data-transition="all .2s ease-in-out">
+        <div>
+            <div>
+                <div style="background-color:black;width:240px;height:70px;border-radius:6px;position:relative;top:10px;margin:auto">
+                    <img style="position:relative;top:10px" src="images/dojo.png">
+                </div>
+                <img  src="images/jarnia.png">
+                
             </div>
         </div>
     </div>
@@ -389,7 +415,7 @@ $('body').on('click', 'a', function(){
            aceFrame.width = el.clientWidth;
            aceFrame.height = el.clientHeight;
            aceFrame.src = "ace.html";
-           aceFrame.setAttribute('allowfullscreen');
+           aceFrame.setAttribute('allowfullscreen', true);
            aceFrame.onload = function frameLoaded(){
              aceFrame.contentDocument.getElementById('editor').innerHTML = el.innerHTML;
              aceFrame.contentWindow.initEditor();

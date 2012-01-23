@@ -39,3 +39,10 @@ waterfall(function(cb){
 }, function(val){
     console.log('Got result', val);
 });
+
+waterfall(
+    fetchCustomerByName.bind(null,'Google'), 
+    getInvoices,
+    sum,
+    showOnScreen
+);
