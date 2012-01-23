@@ -61,7 +61,7 @@
     <div class="me step no-chrome-slide" data-x="1000" data-y="-2500" data-transition="all .2s ease-in-out">
         <div>
             <div>
-                <img src="images/tatoo.jpg" alt="HTML">
+                <img src="images/html5-topper.png" alt="HTML">
             </div>
         </div>
     </div>
@@ -86,6 +86,46 @@
         <div>
             <div>
                 <h1>Varför JavaScript?</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="me step slide" data-x="4000" data-y="-500" data-rotate="180" data-transition="all .8s ease-in-out">
+        <div>
+            <div>
+                <img src="images/learnjs.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="me step no-chrome-slide" data-x="4000" data-y="500" data-rotate="180" data-transition="all .8s ease-in-out">
+        <div>
+            <div>
+                <h2 style="font-size:44px">"I’ve found it in turns <b>frustrating</b> and <b>enlightening</b>, <b>ridiculous</b> and <b>brilliant</b>. I have never felt so <b>empowered</b> by a language and its ecosystem" <br>- Dan North</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="me step no-chrome-slide" data-x="4000" data-y="1500" data-rotate="180" data-transition="all .8s ease-in-out">
+        <div>
+            <div>
+                <img src="images/github.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="me step no-chrome-slide" data-x="4000" data-y="2500" data-rotate="180" data-transition="all .8s ease-in-out">
+        <div>
+            <div>
+                <img src="images/javascript.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="me step no-chrome-slide" data-x="4000" data-y="3500" data-rotate="180" data-transition="all .8s ease-in-out">
+        <div>
+            <div>
+                <img src="images/html5-jobs.png">
             </div>
         </div>
     </div>
@@ -116,7 +156,7 @@
         </div>
     </div>
 
-    <div class="me step no-chrome-slide" data-x="0" data-y="3000" data-scale="2" data-rotate="90">
+    <div class="me step no-chrome-slide" data-x="0" data-y="1000" data-scale="2" data-rotate="90">
         <div>
             <div style="position:relative">
                 <img width="100%" src="images/Galaxy.jpg">
@@ -131,7 +171,7 @@
         </div> 
     </div>
 
-    <div class="me step no-chrome-slide" data-x="0" data-y="1000" data-scale="2" data-rotate="90">
+    <div class="me step no-chrome-slide" data-x="0" data-y="3000" data-scale="2" data-rotate="90">
         <div>
             <div style="position:relative;background-image:url(images/js.png);background-size: 83%;background-position: 52px -75px;width:100%;height:100%">
 
@@ -166,6 +206,14 @@
                     <li> null
                     <li> undefined
                 </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="me step no-chrome-slide" data-x="0" data-y="-500" data-rotate="180" data-transition="all .4s ease-in-out">
+        <div>
+            <div>
+                <img src="images/typeof.png">
             </div>
         </div>
     </div>
@@ -227,26 +275,7 @@ myFunction.apply(this, []);
             </div>
         </div>
     </div>
-
-    <div class="me step no-chrome-slide" data-x="-3000" data-y="-1500" data-rotate="180" data-transition="all .4s ease-in-out">
-        <div>
-            <div>
-                <h2>Funktionsanrop</h2>
-                    <pre class="ace-area">
-myFunction();
-
-myObj.myFunction();
-
-new MyFunction();
-
-myFunction.call(this, arg1);
-
-myFunction.apply(this, []);
-                    </pre>
-            </div>
-        </div>
-    </div>
-
+<!--
     <div class="me step no-chrome-slide" data-x="-5000" data-y="-1500" data-rotate="180" data-transition="all .2s ease-in-out">
         <div>
             <div>
@@ -259,29 +288,92 @@ myFunction.apply(this, []);
             </div>
         </div>
     </div>
-
-    <div class="me step no-chrome-slide" data-x="-6000" data-y="-1500" data-rotate="180" data-transition="all .2s ease-in-out">
+-->
+        <div class="me step no-chrome-slide" data-x="-4000" data-y="-1500" data-rotate="180" data-transition="all .4s ease-in-out">
         <div>
             <div>
-                <h2 style="font-size:60px">jQuery</h2>
-                <img src="images/victorinox.jpeg">
+                <h2>Closures</h2>
+                    <pre class="ace-area">
+(function(){
+    var subscriptions = {};
+    return {
+        subscribe = function(event, handler){
+            (subscriptions[event] = subscriptions[event] || [])
+            .push(handler);
+        },
+        publish = function(event, data){
+            (subscriptions[event] || [])
+            .forEach(function(subscriber){
+                subscriber(data);
+            });
+        }
+    };
+}());
+
+
+                    </pre>
             </div>
         </div>
     </div>
 
     <div class="me step no-chrome-slide" data-x="-5000" data-y="-1500" data-rotate="180" data-transition="all .2s ease-in-out">
         <div>
-            <div>
-                <h2 style="font-size:60px">Scoping</h2>
-                <ul style="list-style-type:disc;text-align:left;display:inline-block;line-height:1.4;">
-                    <li> Function scope
-                    <li> _inte_ block-scope!
-                    <li> 
-                </ul>
+            <div style="position:relative">
+                <div style="background-color:black;width:240px;height:70px;border-radius:6px;position:relative;top:10px;margin:auto"><img  src="images/jquery.gif"></div>
+                <span style="position:absolute;left:80px;top:130px;">DOM</span>
+                <span style="position:absolute;left:600px;top:290px;">AJAX</span>
+                <span style="position:absolute;left:400px;top:120px;">Events</span>
+                <span style="position:absolute;left:400px;top:520px;">Effects</span>
+                <img style="width:800px" src="images/victorinox.jpeg">
             </div>
         </div>
     </div>
 
+    <div class="me step no-chrome-slide" data-x="-6000" data-y="-1500" data-rotate="180" data-transition="all .2s ease-in-out">
+        <div>
+            <div>
+                <h2 style="font-size:60px">DOM - selektion</h2>
+                <pre class="ace-area">
+//välj ut element
+$('.myClass') // utifrån css-klass
+$('a')        // utifrån tag name
+$('#myId')    // utifrån id
+$(':not(a)')  // utifrån negativa kriterier
+$(':visible') // utifrån synlighet
+$('form:has(select)') // utifrån HTML-innehåll
+$('span:contains(nyancat)') //utifrån text-innehåll
+// och så vidare
+                </pre>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="me step no-chrome-slide" data-x="-7000" data-y="-1500" data-rotate="180" data-transition="all .2s ease-in-out">
+        <div>
+            <div>
+                <h2 style="font-size:60px">Events</h2>
+                <pre class="ace-area">
+// utifrån en selektion av element
+$('a') // registrera event-hanterare
+    .click(function(){ alert(this.href); })
+    .mouseover(function(){ 
+        $(this).css('color', 'green') ;
+    });
+
+//delegera events till parent-element
+$('body').on('click', 'a', function(){
+    console.log('')
+});
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div  data-x="-4000" data-y="-1500" >
+        <a href="http://dannorth.net/2011/12/19/the-rise-and-rise-of-javascript/">The rise and rise of javascript</a><br>
+        <a href="http://jsconf.eu/2010/speaker/the_jquery_divide_by_rebecca_m.html">The jQuery divide</a>
+    </div>
 
 </div>
 <!--http://www.youtube.com/watch?v=Y2Y0U-2qJMs&feature=player_detailpage#t=37s -->
